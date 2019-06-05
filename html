@@ -1,0 +1,54 @@
+<head>
+	<meta charset="UTF-8">
+	<title> Tabs on JS with JQuery </title>
+	<link rel="stylesheet" href="tabs.css">
+</head>
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<div class="container-tab">
+
+	<ul class="accordion-tabs">
+		<li class="tab-head-cont">
+			<a href="#" class="is-active">Фауст</a>
+			<section>
+				<p>...  так кто же ты, наконец? <br> - Я - часть той силы, что вечно хочет зла, но вечно совершает благо. (Гете) </p>
+			</section>
+		</li>
+		<li class="tab-head-cont">
+			<a href="#">Рок Валирии</a>
+			<section>
+				<p>Сжимая друг друга в объятьях они ожидали конца, <br> А горы крущились на части, и мрак поглотил небеса: <br> Подземный огонь вырывался на волю, могучих Драконов паля, <br> Но замерли двое в любовном покое, последние вздохи деля, <br> А волны морские взнеслись в выше стен, и ветер гремел и ревел, <br> И город, что тысячу лет простоял, и все, что люди те знали <br> Безжалостный рок в одночасье забрал, руины везде лишь оставив...</p>
+			</section>
+		</li>
+		<li class="tab-head-cont">
+			<a href="#">Смерть и то, что случается после</a>
+			<section>
+				<p>Каждое мгновение равняется милиардам, милиардам мгновений, и в эти моменты все, что возможно - оно же и неизбежно. Время в любом случае рано или поздно сжимается до мгновения. <br> А есть ли выбор? Все, что может случиться должно случаться. Согласно твоей теории, для каждой вселенной, которая образуется, чтобы вместеить твое "нет", должна быть еще одна, которая вмещала бы твое "да". Но ты сказал, что никогда не совершишь убийства. Устройство мироздания трепещет перед лицом твоей ужасающей уверенностью. Твоя нравственность становится силой настолько же мощной, как и гравитация... (Терри Праттчет)</p>    
+			</section>
+		</li>
+		<li class="tab-head-cont">
+			<a href="#">Записки дивака</a>
+			<section>
+				<p>Джон фон Нейман дав мені цікаву ідею: бути в відповідальності за довколишній світ зовсім необов'язково. Тож за його порадою я розвинув потужне відчуття соціальної безвідповідальності. І відтоді я став дуже щасливою людиною.(Річард Фейнман)</p>
+			</section>
+		</li>
+	</ul>
+	
+</div>
+
+<script>
+	$(document).ready(function () {
+		$('.accordion-tabs').children('li').first().children('a').addClass('is-active').next().addClass('is-open').show();
+		$('.accordion-tabs').on('click', 'li > a', function(event) {
+			if (!$(this).hasClass('is-active')) {
+				event.preventDefault();
+				$('.accordion-tabs .is-open').removeClass('is-open').hide();
+				$(this).next().toggleClass('is-open').toggle();
+				$('.accordion-tabs').find('.is-active').removeClass('is-active');
+				$(this).addClass('is-active');
+			} else {
+				event.preventDefault();
+			}
+		});
+	});
+</script>
